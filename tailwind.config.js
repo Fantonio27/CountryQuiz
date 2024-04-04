@@ -5,7 +5,10 @@ export default {
     extend: {
       colors: {
         lightViolet: "#393F6E",
-        lightGray: "#E2E4F3"
+        lightGray: "#E2E4F3",
+      }, 
+      backgroundImage:{
+        linearColor: "linear-gradient(#E65895, #BC6BE8)"
       }
     }
   },
