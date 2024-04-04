@@ -4,7 +4,7 @@
   import QuestionContainer from "./lib/QuestionContainer.svelte";
   import Congrats from './lib/Congrats.svelte';
 
-  let qNo:number = 1;
+  let qNo:number = 10;
   let component: ComponentProps<SvelteComponent>;
 
   $: qNo < 10? component = QuestionContainer : component = Congrats
