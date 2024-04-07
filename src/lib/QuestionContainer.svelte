@@ -1,8 +1,14 @@
 <script lang="ts">
     import ItemContainer from './ItemContainer.svelte'
     import ChoicesContainer from './ChoicesContainer.svelte'  
+    import { type Questions } from '../type';
 
-    export let qNo:number;
+    export let no : number;
+    export let form : Questions;
+    export let addEvent: ()=> void;
+
+    $: choices = [...form.incorrect_answers, form.correct_answer]
+
 </script>
 
 <div class="bg-[#343964] w-5/12 rounded-lg pt-9 pb-16">
@@ -11,14 +17,14 @@
   </h4>
 
   <div class="mt-3 mb-8">
-    <ItemContainer questionNumber={qNo} />
+    <ItemContainer questionNumber={no} />
   </div>
 
   <div class=" w-8/12 m-auto">
-    <h1 class="text-lightGray text-center text-xl font-medium mb-8">
-      Which country is Kuala Lumpur the <br /> capital?
+    <h1 class={`text-lightGray text-center text-xl font-medium mb-8`}>
+      {form.question}
     </h1>
 
-    <ChoicesContainer />
+    <ChoicesContainer choices={choices} correct_ans={form.correct_answer} on:click={addEvent}/>
   </div>
 </div>
