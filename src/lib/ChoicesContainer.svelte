@@ -21,6 +21,6 @@
         <button 
             class="bg-lightViolet py-5 w-full text-center text-lightGray rounded-xl font-medium cursor-pointer hover:bg-linearColor md:w-60"
             on:click={()=> Scoring(choice)}
-        >{choice}</button>
+        >{@html choice}</button>
     {/each}
 </div>

@@ -40,6 +40,8 @@
           : "Rate Limit Too many requests have occurred. Each IP can only access the API once every 5 seconds.";
     }
   };
+
+  
 </script>
 
 <div class="bg-[#343964] w-11/12 rounded-lg pt-9 pb-16 lg:w-[50rem]">
