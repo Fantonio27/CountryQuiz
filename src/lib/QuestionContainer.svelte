@@ -44,7 +44,7 @@
 
 <div class="bg-[#343964] w-11/12 rounded-lg pt-9 pb-16 lg:w-[50rem]">
   <h4 class=" font-bold text-[#8B8EAB] text-center text-[0.875rem]">
-    Country Quiz
+    Quiz Game
   </h4>
 
   <div class="mt-3 mb-8">
