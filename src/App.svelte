@@ -2,19 +2,30 @@
   import {type ComponentProps, type SvelteComponent} from "svelte";
   import QuestionContainer from "./lib/QuestionContainer.svelte";
   import Congrats from './lib/Congrats.svelte';
+  import CategoryContainer from './lib/CategoryContainer.svelte'
+  import { type Datasets, type QuizInfo} from "./utils/type";
 
-
-  let qNo:number = 1;
+  let qNo:number = 0;
   let score = 0;
   let component: ComponentProps<SvelteComponent>;
-
-  $: qNo < 10? component = QuestionContainer : component = Congrats
+  let api:string;
+  
+  $: qNo == 0? component = CategoryContainer
+  : qNo < 11 ? component = QuestionContainer 
+  : component = Congrats
 
   const addScore = (event : CustomEvent) => {
     if(event.detail.user_answer){
       score += 1
     }
     qNo += 1;
+  }
+
+  const generateAPI = (info: QuizInfo) => {
+    const {category, difficulty, type} = info;
+
+    api = `https://opentdb.com/api.php?amount=10${category && '&category='+category}${difficulty && '&difficulty='+difficulty}${type && '&type='+type}`;
+    qNo = 1
   }
 
 </script>
@@ -24,10 +35,12 @@
       this={component} 
       qNo= {qNo}
       addEvent={addScore}
-      resetEvent={()=> {qNo = 1; score = 0; }}
+      resetEvent={()=> {qNo = 0; score = 0; }}
       score={score}
+      startEvent={generateAPI}
+      api={api}
     />
-  <br/>
+    <!-- <CategoryContainer startEvent={generateAPI}/> -->
 </main>
 
 <style scoped>
