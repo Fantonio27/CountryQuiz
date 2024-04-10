@@ -1,7 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
 
-    export let choices:  string[];
+    export let choices: string[];
     export let correct_ans : string;
 
     const dispatch = createEventDispatcher()
@@ -16,10 +16,10 @@
 
 </script>
 
-<div class="grid grid-cols-2 gap-y-5 justify-items-center">
+<div class="grid grid-cols-1 gap-y-5 justify-items-center md:grid-cols-2">
     {#each choices as choice, index}
         <button 
-            class="bg-lightViolet py-5 w-60 text-center text-lightGray rounded-xl font-medium cursor-pointer hover:bg-linearColor"
+            class="bg-lightViolet py-5 w-full text-center text-lightGray rounded-xl font-medium cursor-pointer hover:bg-linearColor md:w-60"
             on:click={()=> Scoring(choice)}
         >{choice}</button>
     {/each}

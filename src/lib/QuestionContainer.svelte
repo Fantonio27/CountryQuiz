@@ -11,7 +11,7 @@
 
 </script>
 
-<div class="bg-[#343964] w-5/12 rounded-lg pt-9 pb-16">
+<div class="bg-[#343964] w-11/12 rounded-lg pt-9 pb-16 lg:w-[50rem]">
   <h4 class=" font-bold text-[#8B8EAB] text-center text-[0.875rem]">
     Country Quiz
   </h4>
@@ -20,7 +20,7 @@
     <ItemContainer questionNumber={no} />
   </div>
 
-  <div class=" w-8/12 m-auto">
+  <div class=" w-10/12 m-auto md:w-8/12">
     <h1 class={`text-lightGray text-center text-xl font-medium mb-8`}>
       {form.question}
     </h1>
