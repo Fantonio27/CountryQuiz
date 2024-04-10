@@ -17,7 +17,7 @@
 </script>
 
 <div class="grid grid-cols-1 gap-y-5 justify-items-center md:grid-cols-2">
-    {#each choices as choice, index}
+    {#each [...choices, correct_ans ] as choice, index}
         <button 
             class="bg-lightViolet py-5 w-full text-center text-lightGray rounded-xl font-medium cursor-pointer hover:bg-linearColor md:w-60"
             on:click={()=> Scoring(choice)}
