@@ -20,11 +20,6 @@
 </script>
 
 <main class="h-screen flex items-center justify-center">
-  <!-- {#if error }
-    <ErrorModal />  -->
-  <!-- {:else if fetching}
-    <h1>...loading</h1> -->
-  <!-- {:else} -->
     <svelte:component 
       this={component} 
       qNo= {qNo}
@@ -32,7 +27,6 @@
       resetEvent={()=> {qNo = 1; score = 0; }}
       score={score}
     />
-  <!-- {/if} -->
   <br/>
 </main>
 
