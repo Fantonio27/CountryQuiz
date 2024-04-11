@@ -3,9 +3,9 @@
   import QuestionContainer from "./lib/QuestionContainer.svelte";
   import Congrats from './lib/Congrats.svelte';
   import CategoryContainer from './lib/CategoryContainer.svelte'
-  import { type Datasets, type QuizInfo} from "./utils/type";
+  import {type QuizInfo} from "./utils/type";
 
-  let qNo:number = 0;
+  let qNo:number = 11;
   let score = 0;
   let component: ComponentProps<SvelteComponent>;
   let api:string;
@@ -18,7 +18,8 @@
     if(event.detail.user_answer){
       score += 1
     }
-    qNo += 1;
+
+    setTimeout(()=>{qNo += 1;},1500)
   }
 
   const generateAPI = (info: QuizInfo) => {
@@ -28,6 +29,11 @@
     qNo = 1
   }
 
+  const resetAction = (index:number) => {
+    qNo = index; 
+    score = 0
+  }
+
 </script>
 
 <main class="h-screen flex items-center justify-center">
@@ -35,7 +41,7 @@
       this={component} 
       qNo= {qNo}
       addEvent={addScore}
-      resetEvent={()=> {qNo = 0; score = 0; }}
+      resetEvent={resetAction}
       score={score}
       startEvent={generateAPI}
       api={api}
